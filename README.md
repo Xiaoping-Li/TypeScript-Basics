@@ -114,3 +114,49 @@ a = 'hello'; Complier Complain: a needs to be a number or boolean;
   * Type `any` lets you completely bypass TypeScript's type checking for a given variable. Using scenario: If you have a variable which has unclear types, and you need to complile to JS.
   * Type `union` lets you declare multiple type possibilities for a variable.
 
+9. `TypeScript Class`
+```
+class Person {
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  getFullName() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+
+var p = new Person('first', 'last'); ---> should have two string type values here.
+```
+
+10. `Interfaces and Duck Typing`
+```
+interface Person {
+  firstName: string;
+  lastName: string;
+  getFullName(): string;
+}
+
+class Foo implments Person {
+  firstName: string;
+  lastName: string;
+  getFullName(): string {
+    return this.firstName + this.lastName;
+  }
+}
+
+let p: Person = new Foo();
+
+let obj = {
+  firstName: 'first',
+  lastName: 'last',
+  age: 10,
+  getFullName: () => 'first last'
+}; ---> Doesn't look like any class that implement from interfact, but looks like one. TypeScript allows you to treat this as an instance of person, and assign it to person instance.
+
+p = obj; ---> But, p could not access 'age'
+
+```
+**Notes:**
+  * `Interfaces` let you define the structure without defining the implementation. And in the `class` that implements the interface has to provide everything that the interface is declaring. So the declarations in the `interdaces` will enforce every class that implments it to actually follow and implement.
