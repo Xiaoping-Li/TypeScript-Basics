@@ -95,5 +95,15 @@ var greeting = greet(); ---> Then the greeting's type is 'string'
 var greeting;
 greeting = greet(); ---> Then the greeting's type is 'any'
 ```
-**Notes:** If the function's return value's type is obvisouly, then the varaible which has been assigned the return value from this function, will implicitly get the type of the return value from the function. (**Note:** the variable's declaration and define should be in the same line). 
+**Notes:** If the function's return value's type is obvisouly, then the varaible which has been assigned the return value from this function, will implicitly get the type of the return value from the function. (**Note:** the variable's declaration and define should be in the same line).
+
+8. `The **any** type, **Union** type`
+```
+var a: any;
+a = 10; ---> No complain, fine
+a = true; ---> No complain, fine
+```
+**Notes:**
+  * Type `any` tells typescript to `ignore type checking`;
+  * Using scenario: If you have a variable which has multiple types, and you need to complile to JS.
 
