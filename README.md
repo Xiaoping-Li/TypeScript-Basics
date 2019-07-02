@@ -44,4 +44,21 @@ myArr = [1]; ---> Complier Complain: need to type of data;
 ```
 **Notes:** For `array declaration`, we specify the data type before the `[]`. For `tuple declaration`, the data types are specified like elements inside the `[]`.
 
+4. `function argument counts`
+```
+function add(a: number, b: number) {
+  return a + b;
+}
+
+function add(a: number, b: number, c?) {
+  return a + b;
+} ---> The 3rd argument is optional
+
+// Set Default value
+function add(a: number, b: number, c = 0) {
+  return a + b + c;
+}
+```
+**Notes:** The number of arguments to functions in JS do not have to match the function signature. You can pass in more or less arguments than what's declared in the function. But by default, TypeScript enforces that the argument counts in function calls exactly match function signature. You could have multiple options, but they must be in the end.
+
 
