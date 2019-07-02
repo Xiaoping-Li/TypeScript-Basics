@@ -160,3 +160,76 @@ p = obj; ---> But, p could not access 'age'
 ```
 **Notes:**
   * `Interfaces` let you define the structure without defining the implementation. And in the `class` that implements the interface has to provide everything that the interface is declaring. So the declarations in the `interdaces` will enforce every class that implments it to actually follow and implement.
+
+11. `Class Member Visibility`
+```
+class Person {
+  // shortcut to define constructor with private or public member variables
+  constructor(private firstName: string, private lastName: string) {}
+
+  greet() {
+    console.log('Hey there!');
+  }
+
+  getFullName() {
+    return this.firstName + this.lastName;
+  }
+}
+
+class Programmer extends Person {
+  greet() {
+    console.log('Hey world!');
+  }
+
+  greetLikeNormalPeople() {
+    super.greet();
+  }
+}
+
+var aProgrammer: Person = new Programmer();
+aProgrammer.greet(); ---> 'Hey world!' Still an instance of Programmer;
+aProgrammer.firstName; ---> Compiler complain: 'firstName' is 'private'
+aProgrammer.getFullName(); ---> Fine
+```
+**Notes:**
+  * `Member visibility`: `public(default), private, protected`
+  * `private` works for both variables and methods.
+  * `protected`: could not see outside of the class
+
+12. `Readonly Modifier`
+```
+class Person {
+  readonly name;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+// Shortcut of above class
+class Person {
+  constructor(readonly name: string) {}
+}
+
+var p = new Person('some name');
+console.log(p.name); ---> Fine. Could access the member
+p.name = 'other'; ---> Not Fine. Could not been modified
+```
+**Notes:** There are two places that you could assign value to `readonly` member
+  * When you declare the member. For example, `readonly name = 'first last'`
+  * In the `constructor`, like the above code. 
+
+13. `Enums`
+```
+enum DaysOfTheWeek {
+  SUN, MON, TUE, WED, THU, FRI, SAT
+}    ---> Creating a type with enumerations 
+
+let day: DaysOfTheWeek;
+day = DaysOfTheWeek.MON;
+```
+
+14. `Generics`
+
+
+
