@@ -58,7 +58,42 @@ function add(a: number, b: number, c?) {
 function add(a: number, b: number, c = 0) {
   return a + b + c;
 }
-```
-**Notes:** The number of arguments to functions in JS do not have to match the function signature. You can pass in more or less arguments than what's declared in the function. But by default, TypeScript enforces that the argument counts in function calls exactly match function signature. You could have multiple options, but they must be in the end.
 
+function add(a: number, b: number, c = 0, d?: number) {
+  return a + b + c + d;
+}
+```
+**Notes:** 
+  * The number of arguments to functions in JS do not have to match the function signature. You can pass in more or less arguments than what's declared in the function. But by default, TypeScript enforces that the argument counts in function calls exactly match function signature. 
+  * You could have multiple options, but they must be in the end.
+  * You could set `default value` for optional argument.
+  * Argument d is a number and is optional. So it doesn't need to be passed. But if it is passed, it should be a number.
+
+5. `function return type`
+```
+function add(a: number, b: number): number {
+  return a + b;
+}
+```
+
+6. `Implicit typing with variable declarations`
+```
+var a = 10;
+
+a = true; ---> Complier Complain: a needs to be a number;
+```
+**Notes:** If you don't explicitly declare a variable type, but you assign a value with the declaration, TypeScript implicitly assumes the type from the value being assigned!
+
+7. `Implicit typing with function calls`
+```
+function greet() {
+  return 'Good morning';
+}
+
+var greeting = greet(); ---> Then the greeting's type is 'string'
+
+var greeting;
+greeting = greet(); ---> Then the greeting's type is 'any'
+```
+**Notes:** If the function's return value's type is obvisouly, then the varaible which has been assigned the return value from this function, will implicitly get the type of the return value from the function. (**Note:** the variable's declaration and define should be in the same line). 
 
