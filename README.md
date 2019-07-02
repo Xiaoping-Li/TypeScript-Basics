@@ -97,13 +97,20 @@ greeting = greet(); ---> Then the greeting's type is 'any'
 ```
 **Notes:** If the function's return value's type is obvisouly, then the varaible which has been assigned the return value from this function, will implicitly get the type of the return value from the function. (**Note:** the variable's declaration and define should be in the same line).
 
-8. `The **any** type, **Union** type`
+8. `The any type, Union type`
 ```
+// any type
 var a: any;
 a = 10; ---> No complain, fine
 a = true; ---> No complain, fine
+
+// Union type
+var a: number | boolean;
+a = 10; ---> No complain, fine
+a = true; ---> No complain, fine
+a = 'hello'; Complier Complain: a needs to be a number or boolean;
 ```
 **Notes:**
-  * Type `any` tells typescript to `ignore type checking`;
-  * Using scenario: If you have a variable which has multiple types, and you need to complile to JS.
+  * Type `any` lets you completely bypass TypeScript's type checking for a given variable. Using scenario: If you have a variable which has unclear types, and you need to complile to JS.
+  * Type `union` lets you declare multiple type possibilities for a variable.
 
