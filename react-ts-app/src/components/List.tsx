@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React, { FunctionComponent } from 'react';
+import { Todo } from '../models/todo';
+import { TodoItem } from './TodoItem';
 
-class List extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Here is my Todo List</h1>
-      </div>
-    );
-  }
+interface Props {
+  list: Todo[];
+  onDelete: (todoItem: Todo) => void;
 }
 
-export default List;
+export const List: FunctionComponent<Props> = ({list, onDelete}) => (
+  <ul>
+    {list.map(item => (
+      <TodoItem todo={item} onDelete={onDelete} />
+    ))}
+  </ul>
+);
