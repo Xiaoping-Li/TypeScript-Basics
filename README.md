@@ -3,6 +3,7 @@ This Repo contains basics knowledge I learned from TypeScript
 
 ## Set-up
 1. npm install -g typescript
+2. React projects with TypeScript: create-react-app <app-name> --typescript
 
 ## Commands
 * tsc -help
