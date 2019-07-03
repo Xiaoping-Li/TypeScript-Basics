@@ -4,9 +4,7 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Welcome to my React-TS-App</h1>
-      </header>
+      <h1>My TypeScript ToDo List</h1> 
     </div>
   );
 }
