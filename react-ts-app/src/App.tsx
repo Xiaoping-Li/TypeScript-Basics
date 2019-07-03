@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { List } from './components/List';
-import TodoForm from './components/TodoForm';
+import { TodoForm } from './components/TodoForm';
 import { Todo } from './models/todo';
 import './App.css';
 
@@ -14,8 +14,8 @@ class App extends Component<{}, State> {
   state = {
     newTodo: {
       id: 1,
-      title: '',
       completed: false,
+      title: '',
     },
     list: []
   };
@@ -28,12 +28,38 @@ class App extends Component<{}, State> {
     }));
   }
 
+  addTodo = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    this.setState(previousState => ({
+      newTodo: {
+        id: previousState.newTodo.id + 1,
+        completed: false,
+        title: '',
+      },
+      list: [...previousState.list, previousState.newTodo]
+    }));
+  }
+
+  handleTodoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      newTodo: {
+        ...this.state.newTodo,
+        title: event.target.value
+      }
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <h1>My TypeScript ToDo List</h1> 
         <List list={this.state.list} onDelete={this.deleteTodo}/>
-        <TodoForm />
+        <TodoForm 
+          onAdd={this.addTodo} 
+          onChange={this.handleTodoChange}
+          todo={this.state.newTodo} 
+        />
       </div>
     );
   }

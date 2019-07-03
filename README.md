@@ -2,6 +2,7 @@
 This Repo contains basics knowledge I learned from TypeScript
 * https://www.typescriptlang.org/samples/index.html
 * https://fettblog.eu/typescript-react/components/
+* https://www.frontendtyped.com/2019/03/31/react-ts.html
 
 ## Set-up
 1. npm install -g typescript
