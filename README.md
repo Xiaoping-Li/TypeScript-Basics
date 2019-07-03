@@ -173,6 +173,7 @@ p = obj; ---> But, p could not access 'age'
 ```
 **Notes:**
   * `Interfaces` let you define the structure without defining the implementation. And in the `class` that implements the interface has to provide everything that the interface is declaring. So the declarations in the `interdaces` will enforce every class that implments it to actually follow and implement.
+  * In TypeScript, two types are _compatible_ if their `internal structure` is compatible. This allows us to implement an interface just by having the shape the interface requires, without an `explicit implements clause`.
 
 11. `Class Member Visibility`
 ```
