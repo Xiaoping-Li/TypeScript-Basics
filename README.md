@@ -4,9 +4,21 @@ This Repo contains basics knowledge I learned from TypeScript
 ## Set-up
 1. npm install -g typescript
 
-## Compile 
-Compile `.ts` file to `.js` file:
-`tsc <name-of-tsfile.ts>`
+## Commands
+* tsc -help
+* tsc <name-of-file.ts>: Compile `.ts` file to `.js` file with default name <name-of-file> 
+* tsc <name-of-file.ts> --out <Assign-new-name.js>: Compile to different name
+* tsc <name-of-file.ts> --out <Assign-new-name.js> --watch: The JS file will monitor TS file's changes automatically
+
+**Notes:** TypeScript compiler has an option of specifying a configuration file which contains all these arguments and then we could just run the compiler without any arguments.
+  * Create a JSON file at the root of the project
+  * Only type `tsc` in terminal, then the compiler will look into the JSON file and get all the info it needs to run.
+
+  --------OR--------
+  * Run `tsc --init`, typeScript compiler will create such a JSON file for you `tsconfig.json`
+  * There are some defaults there, also we could modify it.
+
+
 
 ## ts .vs js
 1. `js` doesn't have the concept of **type**. For example, 
@@ -230,6 +242,38 @@ day = DaysOfTheWeek.MON;
 ```
 
 14. `Generics`
+```
+function echo<T>(arg: T): T {
+  return arg;
+}
+```
+**Notes:** `Generics` lets you parameterize types. `Generics` lets you create 3 placeholders for types that you can use in multiple places in your function declaration in this case. TypeScript doesn't really do anything with this thing as far as checking is concerned when you create an input argument and assign it to a placeholder to a generic that doesn't do any type checking, but what it does is to make a `note` of whatever you have passed in over the argument and then when the function completes execution, since it's also marked as a return type of `T`, it makes sure that whatever this function is returning is the same as the type that was passed in.
+```
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
+}
+
+class Admin extends Person {}
+
+class Manager extends Person {}
+
+let admin = new Admin('a', 'a');
+let manager = new Manager('a', 'a');
+
+function personEcho<T extends Person>(person: T): T {
+  return person;
+}
+
+var foo = personEcho(admin); ---> With type of 'Admin'
+var bar = personEcho(manager);  ---> With type of 'Manager'
+```
+**Note:** The `generics` above has `restriction` as `extends Person`, this placeholder applies only to classes that extend person.
+
+15. `Modules`
+**Notes:** `Modules` lets you break your source code into multiple files via building a large app with parts. `export`, `import`
+
+16. `Create an npm project`
+https://www.youtube.com/watch?v=90b9MgQvwUY&list=PLqq-6Pq4lTTanfgsbnFzfWUhhAz3tIezU&index=23
 
 
 
