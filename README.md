@@ -41,6 +41,17 @@ a = true: ---> Error: Type 'true` is not assignable to type 'number'.
 
 2. Define an array with specific type
 ```
+let a: number;
+let b: boolean;
+let c: string;
+let d: any;
+let e: number[] = [1,2,3];   // With default values
+let f: any[] = [1, true, 'a', false];   // With default values
+
+enum Color { Red = 0, Green = 1, Blue = 2, Purple = 3 };
+let myColor = Color.Red;
+
+
 var Array: number[];
 myArray = [];
 myArray = [1, 2];
@@ -50,7 +61,7 @@ myArray.push(1);
 myArray.push('1'); ---> Complier Complain: should be type 'Number' 
 ```
 
-3. `typle`
+3. `tuple`
 ```
 var myArr: [number, boolean];
 myArr = [2, true]; ---> Fine
@@ -173,10 +184,12 @@ p = obj; ---> But, p could not access 'age'
 
 ```
 **Notes:**
-  * `Interfaces` let you define the structure without defining the implementation. And in the `class` that implements the interface has to provide everything that the interface is declaring. So the declarations in the `interdaces` will enforce every class that implments it to actually follow and implement.
+  * `Interfaces` let you define the structure without defining the implementation. And in the `class` that implements the interface has to provide everything that the interface is declaring. 
   * In TypeScript, two types are _compatible_ if their `internal structure` is compatible. This allows us to implement an interface just by having the shape the interface requires, without an `explicit implements clause`.
+  * Can use `Interfaces` to define reusable `custom types`. Capitalize the first letter of name.
+  * `Interfaces` are purely for declarations, they cannot include any implementation. In other words we cannot have the algorithm inside the _interfaces_.
 
-11. `Class Member Visibility`
+11. `Class Member Visibility: Access Modifiers`
 ```
 class Person {
   // shortcut to define constructor with private or public member variables
@@ -207,7 +220,7 @@ aProgrammer.firstName; ---> Compiler complain: 'firstName' is 'private'
 aProgrammer.getFullName(); ---> Fine
 ```
 **Notes:**
-  * `Member visibility`: `public(default), private, protected`
+  * `Access Modifiers`: `public(default), private, protected`
   * The use of `public` on arguments to the constructor is a shorthand that allows us to automatically create properties with that name.
   * `private` works for both variables and methods.
   * `protected`: could not see outside of the class
