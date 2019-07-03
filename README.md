@@ -1,5 +1,6 @@
 # TypeScript-Basics
 This Repo contains basics knowledge I learned from TypeScript
+* https://www.typescriptlang.org/samples/index.html
 
 ## Set-up
 1. npm install -g typescript
@@ -207,6 +208,7 @@ aProgrammer.getFullName(); ---> Fine
 ```
 **Notes:**
   * `Member visibility`: `public(default), private, protected`
+  * The use of `public` on arguments to the constructor is a shorthand that allows us to automatically create properties with that name.
   * `private` works for both variables and methods.
   * `protected`: could not see outside of the class
 
