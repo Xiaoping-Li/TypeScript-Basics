@@ -3,7 +3,7 @@ import { Todo } from '../models/todo';
 
 interface Props {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onAdd: (event: React.FormEvent<HTMLFormElement>) => void;
+  onAdd: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   todo: Todo,
 }
 
@@ -12,8 +12,8 @@ export const TodoForm: FunctionComponent<Props> = ({
   onAdd,
   todo,
 }) => (
-  <form onSubmit={onAdd}>
+  <form >
     <input value={todo.title} onChange={onChange} />
-    <button type="submit">+</button>
+    <button type="submit" onClick={onAdd}>+</button>
   </form>
 );

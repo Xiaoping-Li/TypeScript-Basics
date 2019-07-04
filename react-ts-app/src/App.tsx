@@ -20,7 +20,7 @@ class App extends Component<{}, State> {
     list: []
   };
 
-  deleteTodo = (deleteItem: Todo) => {
+  private deleteTodo = (deleteItem: Todo) => {
     this.setState(previousState => ({
       list: [
         ...previousState.list.filter(todo => todo.id !== deleteItem.id)
@@ -28,7 +28,7 @@ class App extends Component<{}, State> {
     }));
   }
 
-  addTodo = (event: React.FormEvent<HTMLFormElement>) => {
+  private addTodo = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
 
     this.setState(previousState => ({
@@ -41,7 +41,7 @@ class App extends Component<{}, State> {
     }));
   }
 
-  handleTodoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  private handleTodoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
       newTodo: {
         ...this.state.newTodo,
