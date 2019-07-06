@@ -48,7 +48,8 @@ let b: boolean;
 let c: string;
 let d: any;
 let e: number[] = [1,2,3];   // With default values
-let f: any[] = [1, true, 'a', false];   // With default values
+let f: Array<string>;
+let g: any[] = [1, true, 'a', false];   // With default values
 
 enum Color { Red = 0, Green = 1, Blue = 2, Purple = 3 };
 let myColor = Color.Red;

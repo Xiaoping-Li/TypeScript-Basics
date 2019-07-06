@@ -17,3 +17,7 @@ var greeter = function(user: Person) {
 var user = new Student('leela', 'M.', 'lee');
 
 console.log(greeter(user));
+
+
+let strNumTuple: [string, number];
+strNumTuple = ['a', 1]
